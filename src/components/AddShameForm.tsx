@@ -30,7 +30,7 @@ const AddShameForm = ({setReFetchToggle} : IAddShameForm) => {
         data.append("author", values.author)
         data.append("description", values.description)
 
-        await axios.post(`${import.meta.env.VITE_APP_URL}api/shames`, data, {
+        await axios.post(`${process.env.REACT_APP_APP_URL}api/shames`, data, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },

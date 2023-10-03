@@ -12,14 +12,14 @@ const Shame = ({item, setReFetchToggle}: IShame) => {
     const [shameClicked, setShameClicked] = useState<string>("")
 
     const count = async (uuid : string)=>{
-        await axios.patch(`${import.meta.env.VITE_APP_URL}api/shames/${uuid}`, {
+        await axios.patch(`${process.env.REACT_APP_APP_URL}api/shames/${uuid}`, {
             count : item.count + 1
         })
         setReFetchToggle((prev : boolean)=> !prev)
     }
 
     const deleteShame = async (uuid : string)=>{
-        await axios.delete(`${import.meta.env.VITE_APP_URL}api/shames/${uuid}`)
+        await axios.delete(`${process.env.REACT_APP_APP_URL}api/shames/${uuid}`)
         setReFetchToggle((prev : boolean)=> !prev)
     }
 
