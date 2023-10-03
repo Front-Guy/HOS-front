@@ -12,7 +12,11 @@ const Content = ({reFetchToggle, setReFetchToggle} : IContent) => {
     const [results, setResults] = useState<{data : Array<any>}>({data : []})
 
     const fetchData = async ()=>{
-        const response =  await axios.get(`${process.env.REACT_APP_APP_URL}api/shames`)
+        const response =  await axios.get(`${process.env.REACT_APP_APP_URL}api/shames`, {
+            headers : {
+                "ngrok-skip-browser-warning": true
+            }
+        })
         setResults(response)
     }
 
