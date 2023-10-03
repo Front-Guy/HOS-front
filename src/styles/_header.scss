@@ -1,0 +1,38 @@
+.header{
+  background-color: blue;
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+
+  &__title{
+    color: #FFFFFF;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+
+  &__addShame{
+    color: #FFFFFF;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    svg{
+      font-size: 2rem;
+      path{
+        fill: #FFFFFF;
+      }
+    }
+
+    &:hover{
+      font-size: 2rem;
+      background-color: blueviolet;
+    }
+  }
+}

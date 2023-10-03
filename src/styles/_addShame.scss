@@ -1,0 +1,28 @@
+.addShame-modal{
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(50, 50, 50, 0.5);
+  display: flex;
+  justify-content: center;
+  padding-top: 6rem;
+  position: absolute;
+
+  &.open{
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10rem 0;
+    background-color: #FFFFFF;
+    border-radius: 5rem;
+    height: 75rem;
+    width: 40rem;
+  }
+}
