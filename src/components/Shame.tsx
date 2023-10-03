@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from "react";
 import ShameClicked from "./ShameClicked.tsx";
 import {FaPoop, FaSkullCrossbones} from "react-icons/fa6";
-const axios = require('axios')
+import axios from 'axios';
 
 interface IShame{
     item : any
