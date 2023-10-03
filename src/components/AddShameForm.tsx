@@ -1,6 +1,6 @@
 import {useForm} from "react-hook-form"
 import {useState} from "react";
-import axios from 'axios';
+const axios = require('axios')
 
 type Inputs = {
     name: string
