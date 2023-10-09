@@ -1,11 +1,10 @@
 import {useForm} from "react-hook-form"
-import {useState} from "react";
 import axios from 'axios';
 
 type Inputs = {
     name: string
     author: string
-    image: any
+    content: string
     description: string
 }
 
@@ -13,8 +12,6 @@ interface IAddShameForm {
     setReFetchToggle : Function
 }
 const AddShameForm = ({setReFetchToggle} : IAddShameForm) => {
-
-    const [file, setFile] = useState<any>(null);
 
     const {
         register,
@@ -24,17 +21,14 @@ const AddShameForm = ({setReFetchToggle} : IAddShameForm) => {
     } = useForm<Inputs>({mode: "onTouched"})
 
     const onSubmit = async (values: any) => {
-        const data = new FormData()
-        data.append("image", file!)
-        data.append("name", values.name)
-        data.append("author", values.author)
-        data.append("description", values.description)
+        const data = {
+            author : values.author,
+            name: values.name,
+            description: values.description,
+            content: values.content,
+        }
 
-        await axios.post(`${process.env.REACT_APP_APP_URL}api/shames`, data, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        })
+        await axios.post(`${process.env.REACT_APP_APP_URL}api/shames`, data)
         reset();
         setReFetchToggle((prev : boolean)=> !prev)
     }
@@ -58,16 +52,10 @@ const AddShameForm = ({setReFetchToggle} : IAddShameForm) => {
                 {errors.description && <span>Le field est required</span>}
             </div>
 
-                    <input
-                        name={"image"}
-                        type="file"
-                        accept={'.png, .jpg'}
-                        required={true}
-                        onChange={(event) => {
-                            const selectedFile = event.target.files![0];
-                            setFile(selectedFile);
-                        }}
-                    />
+            <div className={"input-container"}>
+                <textarea placeholder={"Lache le scandale"} className={"input"} {...register("content", {required: true})} />
+                {errors.content && <span>Le field est required</span>}
+            </div>
 
             <button className={"sendShame"} type="submit">EEEEENNNNVOYEEEERR</button>
         </form>

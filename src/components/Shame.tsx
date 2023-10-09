@@ -2,6 +2,7 @@ import React, {Fragment, useState} from "react";
 import ShameClicked from "./ShameClicked.tsx";
 import {FaPoop, FaSkullCrossbones} from "react-icons/fa6";
 import axios from 'axios';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 
 interface IShame{
     item : any
@@ -51,7 +52,9 @@ const Shame = ({item, setReFetchToggle}: IShame) => {
 
                 <div className={"content__shame__description"}>
                     <p>{item.description}</p>
-                    <img src={item.image}/>
+                    <SyntaxHighlighter language="javascript" >
+                        {item.content}
+                    </SyntaxHighlighter>
                 </div>
             </div>
             <ShameClicked item={item} clicked={shameClicked} setClicked={setShameClicked}/>

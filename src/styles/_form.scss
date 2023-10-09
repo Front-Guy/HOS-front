@@ -19,6 +19,14 @@ input{
   font-size: 14px;
 }
 
+textarea{
+  height: auto;
+  width: 25rem;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  font-size: 14px;
+}
+
 .input{
   border: 1px solid blueviolet;
 }

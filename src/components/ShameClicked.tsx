@@ -1,3 +1,5 @@
+import SyntaxHighlighter from 'react-syntax-highlighter';
+
 interface IShameClicked {
     item : any
     setClicked : Function
@@ -11,7 +13,9 @@ const ShameClicked = ({item, clicked, setClicked} : IShameClicked) => {
                 <h2>{item.name} par <span>{item.author}</span></h2>
                 <div className={"shame-clicked__description"}>
                     <p>{item.description}</p>
-                    <img src={item.image}/>
+                    <SyntaxHighlighter language="javascript" >
+                        {item.content}
+                    </SyntaxHighlighter>
                 </div>
             </div>
         </div>
